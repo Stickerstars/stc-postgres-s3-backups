@@ -53,7 +53,7 @@ upload_to_bucket() {
     # if the zipped backup file is larger than 50 GB add the --expected-size option
     # see https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
     s3 cp \
-        --storage-class INTELLIGENT_TIERING \
+        --storage-class "$S3_STORAGE_CLASS" \
         - "s3://$S3_BUCKET_NAME/$(date +%Y/%m/%d/backup-%H-%M-%S.sql.gz)"
 }
 
